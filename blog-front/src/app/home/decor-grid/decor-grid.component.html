@@ -1,0 +1,17 @@
+<div class="container">
+  @for (post of blogPosts; track post.title; let idx = $index){
+    @defer (on viewport) {
+      <div [ngClass]="classNames[idx]" >
+        <img [ngSrc]=post.image fill priority="">
+      </div>
+    }@placeholder{
+      <p>Loading...</p>
+    }
+  }
+</div>
+
+
+
+<!--[ngStyle]="{'background-image': 'url(' + post.image + ')'}" -->
+
+

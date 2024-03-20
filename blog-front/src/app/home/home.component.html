@@ -1,0 +1,10 @@
+<div class="home">
+  <div class="side">
+  </div>
+  <div class="grid">
+    @for (chunk of blogPosts; track blogPosts) {
+      <app-decor-grid [blogPosts]=chunk> </app-decor-grid>
+    }
+  </div>
+
+</div>
