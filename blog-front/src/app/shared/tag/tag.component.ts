@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-tag',
@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './tag.component.scss'
 })
 export class TagComponent {
+  @Input() data: { icon: string, iconAlt : string, name: string, isChosen: boolean } | null = null;
+
+
 
 }

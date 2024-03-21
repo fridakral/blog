@@ -1,13 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {RouterOutlet} from "@angular/router";
 import {DecorGridComponent} from "./decor-grid/decor-grid.component";
+import {SidenavComponent} from "./sidenav/sidenav.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     RouterOutlet,
-    DecorGridComponent
+    DecorGridComponent,
+    SidenavComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
@@ -29,7 +31,7 @@ export class HomeComponent implements OnInit{
         chunk.push({
           title: `Blog Post ${postNumber}`,
           tag: 'Travelling',
-          image: `/assets/images/${postNumber}.jpg`
+          image: `/assets/images/decreased_resolution/${postNumber}.jpg`
         });
       }
       chunks.push(chunk);
