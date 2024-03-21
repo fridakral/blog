@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import {TagComponent} from "../../shared/tag/tag.component";
+import {NavButtonComponent} from "./nav-button/nav-button.component";
 
 @Component({
   selector: 'app-sidenav',
   standalone: true,
   imports: [
-    TagComponent
+    NavButtonComponent
   ],
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.scss'
