@@ -1,9 +1,14 @@
 <div class="home">
-  <div class="side">
-  </div>
+  <app-sidenav></app-sidenav>
   <div class="grid">
     @for (chunk of blogPosts; track blogPosts) {
+      @defer(on viewport){
       <app-decor-grid [blogPosts]=chunk> </app-decor-grid>
+      }@placeholder{
+      <p>Loading...</p>
+      }@loading (minimum 2s){
+        <img src="assets/gifs/spinner.gif">
+      }
     }
   </div>
 
