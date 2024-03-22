@@ -1,0 +1,19 @@
+.nav-button{
+  display: flex;
+  background-color: white;
+  align-items: center;
+  margin: 2rem auto 2rem auto;
+  width: 80%;
+
+  border-radius: 1rem;
+
+  img {
+    max-height: 3rem;
+    margin: 5px;
+  }
+
+  p {
+    font-size: large;
+    margin-left: 1rem;
+  }
+}

@@ -1,8 +1,20 @@
 <div class="container">
   @for (post of blogPosts; track post.title; let idx = $index){
     @defer (on viewport) {
-      <div [ngClass]="classNames[idx]" >
-        <img [ngSrc]=post.image fill priority="">
+      <div [ngClass]="classNames[idx]" class="card">
+
+        <img [ngSrc]=post.image fill priority="" [alt]="post.title">
+        <div class="gradient-container">
+          <div class="title-container">
+            <p>{{post.title}}</p>
+            <div class="tags-box">
+              @for (tag of post.tags; track tag){
+                <app-tag [name]="tag"></app-tag>
+              }
+            </div>
+
+          </div>
+        </div>
       </div>
     }@placeholder{
       <p>Loading...</p>
