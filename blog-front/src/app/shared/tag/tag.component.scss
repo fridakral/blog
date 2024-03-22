@@ -2,11 +2,13 @@
   border-radius: 1rem;
   background-color: white;
   width: fit-content;
+  min-width: 50px;
   height: fit-content;
   color: #656565;
   margin: 3px 0 3px 6px;
+  padding: 3px 2px ;
   p {
     font-size: small;
-    padding: 2px 5px;
+    text-align: center;
   }
 }

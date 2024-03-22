@@ -1,11 +1,50 @@
 .sidenav {
-  width: 15%;
+
+
+  max-width: 15%;
+  padding: 0 1rem 0 1rem;
   height: 100vh;
   background-color: #93dbe9;
   float: left;
-  padding: 0;
   margin: 0;
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+
+  .sidenav-content{
+    overflow: hidden;
+  }
+
+
+  .toggle-button {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    $size: 32px;
+    width: $size;
+    height: $size;
+    margin: 0;
+    padding: 0;
+
+    position: absolute;
+    top: 1.5rem;
+    right: calc($size / -2) - 2px;
+
+    border: 1px solid gray;
+    border-radius: 50%;
+
+    background-color: white;
+    cursor: pointer;
+
+    .material-symbols-outlined{
+      font-size: 1.5em;
+
+      width: fit-content;
+      height: fit-content;
+    }
+  }
 }
+
+

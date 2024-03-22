@@ -1,5 +1,21 @@
-<div class="sidenav">
-  @for (tag of tags; track tag) {
-    <app-nav-button [data]="tag"></app-nav-button>
+<div class="sidenav" [@openClose]="isOpen ? 'open' : 'closed'">
+  @if(isOpen){
+    <div class="sidenav-content">
+      <h1>Kategóriák</h1>
+      @for (tag of tags; track tag) {
+        <app-nav-button [data]="tag"></app-nav-button>
+      }
+    </div>
+    <button class="toggle-button" (click)="toggleSidenav()">
+      <span class="material-symbols-outlined">
+        arrow_back_ios_new
+      </span>
+    </button>
+  }@else{
+    <button class="toggle-button" (click)="toggleSidenav()">
+        <span class="material-symbols-outlined">
+          arrow_forward_ios
+        </span>
+    </button>
   }
 </div>

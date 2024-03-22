@@ -1,4 +1,4 @@
-<div class="container">
+<div [ngClass]="{'mobile-container':currentBreakpoint=='mobile', 'container': true }">
   @for (post of blogPosts; track post.title; let idx = $index){
     @defer (on viewport) {
       <div [ngClass]="classNames[idx]" class="card">

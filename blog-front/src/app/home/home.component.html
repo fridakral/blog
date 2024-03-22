@@ -1,14 +1,32 @@
 <div class="home">
-  <app-sidenav></app-sidenav>
-  <div class="grid">
-    @defer (){
-      @for (chunk of blogPosts; track blogPosts) {
+  @switch (currentBreakpoint){
+    @case ('large'){
+      <app-sidenav></app-sidenav>
+      <div class="grid">
+        @defer (){
+          @for (chunk of blogPostsToSend; track blogPostsToSend) {
 
-        <app-decor-grid [blogPosts]=chunk> </app-decor-grid>
-      }
-    } @loading (minimum 2s){
-      <app-spinner></app-spinner>
+            <app-decor-grid [blogPosts]=chunk> </app-decor-grid>
+          }
+        } @loading (minimum 2s){
+          <app-spinner></app-spinner>
+        }
+      </div>
     }
-  </div>
+    @case ('mobile'){
+      <div class="grid">
+        @defer (){
+          @for (chunk of blogPostsToSend; track blogPostsToSend) {
+
+            <app-decor-grid [blogPosts]=chunk> </app-decor-grid>
+          }
+        } @loading (minimum 2s){
+          <app-spinner></app-spinner>
+        }
+      </div>
+    }
+
+  }
+
 
 </div>
