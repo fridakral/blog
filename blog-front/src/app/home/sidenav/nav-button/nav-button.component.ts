@@ -5,12 +5,13 @@ import {NgClass} from "@angular/common";
   selector: 'app-nav-button',
   standalone: true,
   imports: [
-    NgClass
+    NgClass,
   ],
   templateUrl: './nav-button.component.html',
   styleUrl: './nav-button.component.scss'
 })
 export class NavButtonComponent {
+
   @Input() data: { icon: string, iconAlt : string, name: string, isChosen: boolean} | null = null;
 
 
