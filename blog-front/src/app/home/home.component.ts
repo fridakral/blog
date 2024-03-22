@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit{
     this.blogPosts = [
       [
         { title: 'RPDDK - Szálka', tags: ['Utazás'], image: '/assets/images/decreased_resolution/1.jpg' },
-        { title: 'Naplementee növényekkel', tags: ['Kert', 'Utazás', 'Étel-ital', 'Journaling'], image: '/assets/images/decreased_resolution/2.jpg' },
+        { title: 'Naplementee növényekkel', tags: ['Kert'], image: '/assets/images/decreased_resolution/2.jpg' },
         { title: 'Tatabányai kirándulás', tags: ['Utazás'], image: '/assets/images/decreased_resolution/3.jpg' },
         { title: 'Családi nyaralás 3.', tags: ['Utazás'], image: '/assets/images/decreased_resolution/4.jpg' },
         { title: 'Családi nyaralás 2.', tags: ['Utazás'], image: '/assets/images/decreased_resolution/5.jpg' },
