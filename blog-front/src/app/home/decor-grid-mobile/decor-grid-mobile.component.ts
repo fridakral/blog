@@ -35,7 +35,6 @@ export class DecorGridMobileComponent implements OnDestroy, OnInit{
 
   ngOnInit() {
     this.blogPostsChunks = this.chunk(this.blogPosts, 8);
-    console.log(this.blogPostsChunks);
   }
 
   chunk(array: any[], size: number) {

@@ -1,3 +1,26 @@
-<div class="nav-container">
 
+<div class="nav-container" [@openClose]="isOpen ? 'open' :'closed'" >
+  <div class="hamburger-container">
+    <button (click)="togglePressEvent.emit()">
+      @if(isOpen){
+        <span class="material-symbols-outlined">close</span>
+
+      } @else {
+        <span class="material-symbols-outlined">menu</span>
+      }
+    </button>
+  </div>
+
+
+
+  @if (isOpen){
+    <div class="tag-container">
+      @for (tag of tags; track tags){
+        <app-nav-button-mobile [name]="tag.name"></app-nav-button-mobile>
+      }
+
+  </div>
+  }
 </div>
+
+
