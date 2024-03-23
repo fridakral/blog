@@ -1,32 +1,23 @@
-<div class="home">
-  @switch (currentBreakpoint){
-    @case ('large'){
-      <app-sidenav></app-sidenav>
-      <div class="grid">
-        @defer (){
-          @for (chunk of blogPostsToSend; track blogPostsToSend) {
+<div class="home" [ngStyle]="{'flex-direction': currentBreakpoint=='mobile' ? 'column': 'row'}">
+  @if (currentBreakpoint!='mobile'){
+    <app-sidenav [isOpen]="isOpen" (togglePressEvent)="toggleSidenav()"></app-sidenav>
+    <div class="grid">
+      @defer (){
+        <app-decor-grid [blogPosts]=blogPostsToSend [isOpen]="isOpen"> </app-decor-grid>
 
-            <app-decor-grid [blogPosts]=chunk> </app-decor-grid>
-          }
-        } @loading (minimum 2s){
-          <app-spinner></app-spinner>
-        }
-      </div>
-    }
-    @case ('mobile'){
-      <div class="grid">
-        @defer (){
-          @for (chunk of blogPostsToSend; track blogPostsToSend) {
+      } @loading (minimum 2s){
+        <app-spinner></app-spinner>
+      }
+    </div>
+  } @else {
+    <app-sidenav-mobile [isOpen]="isOpen" (togglePressEvent)="toggleSidenav()"></app-sidenav-mobile>
+    <div class="grid">
+      @defer (){
+        <app-decor-grid-mobile [blogPosts]=blogPostsToSend [isOpen]="isOpen"> </app-decor-grid-mobile>
 
-            <app-decor-grid [blogPosts]=chunk> </app-decor-grid>
-          }
-        } @loading (minimum 2s){
-          <app-spinner></app-spinner>
-        }
-      </div>
-    }
-
+      } @loading (minimum 2s){
+        <app-spinner></app-spinner>
+      }
+    </div>
   }
-
-
 </div>

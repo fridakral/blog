@@ -1,10 +1,10 @@
-.container {
+.mobile-container {
   display: grid;
-  gap: 2rem;
-  padding: 2rem 2rem 0;
+  gap: 1rem;
+  padding: 1rem 1rem 0;
   grid-template-areas:
-    "a b c d e" "a f f g e" "h i j k k";
-  aspect-ratio: 5/3;
+    "a b" "c b" "d d" "e f" "e g" "h h";
+  aspect-ratio: 1/3;
 }
 
 .a {
@@ -38,17 +38,3 @@
 .h {
   grid-area: h;
 }
-
-.i {
-  grid-area: i;
-}
-
-.j {
-  grid-area: j;
-}
-
-.k {
-  grid-area: k;
-}
-
-

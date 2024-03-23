@@ -1,0 +1,13 @@
+<div class="card">
+  <img [ngSrc]=blogPost!.image fill priority="" [alt]="blogPost!.title">
+  <div class="gradient-container">
+    <div class="title-container">
+      <p>{{blogPost!.title}}</p>
+      <div class="tags-box">
+        @for (tag of blogPost!.tags; track tag){
+          <app-tag [name]="tag"></app-tag>
+        }
+      </div>
+    </div>
+  </div>
+</div>
