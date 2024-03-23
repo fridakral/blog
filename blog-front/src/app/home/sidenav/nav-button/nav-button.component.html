@@ -1,6 +1,8 @@
 <button class="nav-button">
   <img [src]="data?.icon"  [alt]="data?.iconAlt" />
-  <p>{{data?.name}}</p>
+  @if(currentBreakpoint=='large'){
+    <p>{{data?.name}}</p>
+  }
 </button>
 
 

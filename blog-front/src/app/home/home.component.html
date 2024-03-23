@@ -1,6 +1,6 @@
 <div class="home">
   @switch (currentBreakpoint){
-    @case ('large'){
+    @default {
       <app-sidenav></app-sidenav>
       <div class="grid">
         @defer (){
@@ -14,6 +14,7 @@
       </div>
     }
     @case ('mobile'){
+      <app-sidenav></app-sidenav>
       <div class="grid">
         @defer (){
           @for (chunk of blogPostsToSend; track blogPostsToSend) {

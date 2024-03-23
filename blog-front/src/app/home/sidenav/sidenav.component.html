@@ -1,9 +1,13 @@
-<div class="sidenav" [@openClose]="isOpen ? 'open' : 'closed'">
+<div class="sidenav" [@openClose]="!isOpen ? 'closed' : (currentBreakpoint == 'large'? 'open' : 'halfway')">
   @if(isOpen){
     <div class="sidenav-content">
-      <h1>Kategóriák</h1>
+      <div class="title-container">
+        @if(currentBreakpoint=='large'){
+          <p class="categories">Kategóriák</p>
+        }
+      </div>
       @for (tag of tags; track tag) {
-        <app-nav-button [data]="tag"></app-nav-button>
+      <app-nav-button [data]="tag"></app-nav-button>
       }
     </div>
     <button class="toggle-button" (click)="toggleSidenav()">
