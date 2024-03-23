@@ -1,0 +1,15 @@
+<div >
+  @for (postChunk of blogPostsChunks; track blogPostsChunks){
+    <div class="mobile-container">
+      @for(post of postChunk; track blogPostsChunks; let idx = $index){
+        @defer (on viewport) {
+          <div [ngClass]="classNames[idx]">
+            <app-image-card [blogPost]="post"></app-image-card>
+          </div>
+        }@placeholder{
+          <p>Loading...</p>
+        }
+      }
+    </div>
+  }
+</div>

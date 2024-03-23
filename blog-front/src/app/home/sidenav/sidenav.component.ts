@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, Output} from '@angular/core';
 import {NavButtonComponent} from "./nav-button/nav-button.component";
 import {
   trigger,
@@ -21,7 +21,7 @@ import {BreakpointService} from "../../shared/services/breakpoint.service";
     trigger('openClose', [
       state('open', style(
         {
-          width: '15%'
+          width: '200px'
         }
       )),
       state('closed', style(
@@ -44,6 +44,9 @@ import {BreakpointService} from "../../shared/services/breakpoint.service";
 })
 export class SidenavComponent implements OnDestroy{
 
+  @Input() public isOpen : boolean = false;
+  @Output() togglePressEvent = new EventEmitter<void>();
+
   tags:{icon: string, iconAlt: string, name: string, isChosen:boolean}[] = [
     { icon: 'assets/icons/boot.png', iconAlt: 'hiking-boot', name: 'Utazás', isChosen: true },
     { icon: 'assets/icons/brain.png', iconAlt: 'brain', name: 'Önismeret?', isChosen: true},
@@ -62,11 +65,6 @@ export class SidenavComponent implements OnDestroy{
     });
   }
 
-  isOpen = true;
-
-  toggleSidenav(){
-    this.isOpen = !this.isOpen;
-  }
 
   ngOnDestroy() {
     this.subscription?.unsubscribe();

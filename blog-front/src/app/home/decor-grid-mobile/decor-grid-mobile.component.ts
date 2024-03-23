@@ -1,28 +1,23 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {NgStyle, NgClass, NgOptimizedImage} from "@angular/common";
-import {SpinnerComponent} from "../../shared/spinner/spinner.component";
-import {TagComponent} from "../../shared/tag/tag.component";
+import {ImageCardComponent} from "../../shared/image-card/image-card.component";
 import {Subscription} from "rxjs";
 import {BreakpointService} from "../../shared/services/breakpoint.service";
-import {ImageCardComponent} from "../../shared/image-card/image-card.component";
+import {NgClass} from "@angular/common";
 
 @Component({
-  selector: 'app-decor-grid',
+  selector: 'app-decor-grid-mobile',
   standalone: true,
   imports: [
-    NgStyle,
-    NgClass,
-    NgOptimizedImage,
-    SpinnerComponent,
-    TagComponent,
-    ImageCardComponent
+    ImageCardComponent,
+    NgClass
   ],
-  templateUrl: './decor-grid.component.html',
-  styleUrl: './decor-grid.component.scss'
+  templateUrl: './decor-grid-mobile.component.html',
+  styleUrl: './decor-grid-mobile.component.scss'
 })
-export class DecorGridComponent implements OnDestroy, OnInit{
+export class DecorGridMobileComponent implements OnDestroy, OnInit{
 
   @Input() blogPosts : { title: string, tags: string[], image: string }[] = [];
+  @Input() isOpen!: boolean;
 
   blogPostsChunks:{ title: string, tags: string[], image: string }[][] = [];
 
@@ -36,11 +31,10 @@ export class DecorGridComponent implements OnDestroy, OnInit{
     });
   }
 
-  classNames: string[] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'];
-  @Input() isOpen!: boolean;
+  classNames: string[] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
   ngOnInit() {
-    this.blogPostsChunks = this.chunk(this.blogPosts, 11);
+    this.blogPostsChunks = this.chunk(this.blogPosts, 8);
     console.log(this.blogPostsChunks);
   }
 
@@ -52,4 +46,5 @@ export class DecorGridComponent implements OnDestroy, OnInit{
   ngOnDestroy() {
     this.subscription?.unsubscribe();
   }
+
 }

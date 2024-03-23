@@ -10,13 +10,13 @@
       <app-nav-button [data]="tag"></app-nav-button>
       }
     </div>
-    <button class="toggle-button" (click)="toggleSidenav()">
+    <button class="toggle-button" (click)="togglePressEvent.emit()">
       <span class="material-symbols-outlined">
         arrow_back_ios_new
       </span>
     </button>
   }@else{
-    <button class="toggle-button" (click)="toggleSidenav()">
+    <button class="toggle-button" (click)="togglePressEvent.emit()">
         <span class="material-symbols-outlined">
           arrow_forward_ios
         </span>

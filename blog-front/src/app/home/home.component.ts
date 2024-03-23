@@ -5,6 +5,9 @@ import {SidenavComponent} from "./sidenav/sidenav.component";
 import {SpinnerComponent} from "../shared/spinner/spinner.component";
 import {BreakpointService} from "../shared/services/breakpoint.service";
 import {Subscription} from "rxjs";
+import {SidenavMobileComponent} from "./sidenav-mobile/sidenav-mobile.component";
+import {DecorGridMobileComponent} from "./decor-grid-mobile/decor-grid-mobile.component";
+import {NgStyle} from "@angular/common";
 
 @Component({
   selector: 'app-home',
@@ -13,7 +16,10 @@ import {Subscription} from "rxjs";
     RouterOutlet,
     DecorGridComponent,
     SidenavComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    SidenavMobileComponent,
+    DecorGridMobileComponent,
+    NgStyle
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
@@ -22,6 +28,7 @@ export class HomeComponent implements OnInit, OnDestroy{
 
   currentBreakpoint:string = '';
   subscription?: Subscription;
+  isOpen: boolean = true;
 
   constructor(private breakpointService: BreakpointService) {
     this.subscription= this.breakpointService.breakpoint$.subscribe(value => {
@@ -30,12 +37,12 @@ export class HomeComponent implements OnInit, OnDestroy{
     });
   }
 
-  blogPostsToSend : {title: string, tags: string[], image: string}[][] = [];
+  blogPostsToSend : {title: string, tags: string[], image: string}[] = [];
 
 
   ngOnInit(): void {
 
-    var blogPosts = [
+    this.blogPostsToSend = [
       { title: 'RPDDK - Szálka', tags: ['Utazás'], image: '/assets/images/decreased_resolution/1.jpg' },
       { title: 'Naplementee növényekkel', tags: ['Kert'], image: '/assets/images/decreased_resolution/2.jpg' },
       { title: 'Tatabányai kirándulás', tags: ['Utazás'], image: '/assets/images/decreased_resolution/3.jpg' },
@@ -64,21 +71,15 @@ export class HomeComponent implements OnInit, OnDestroy{
       { title: 'Blog Post 2', tags: ['Utazás'], image: '/assets/images/decreased_resolution/26.jpg' },
       { title: 'Blog Post 1', tags: ['Utazás'], image: '/assets/images/decreased_resolution/27.jpg' }
     ];
-    if(this.currentBreakpoint == 'mobile'){
-      this.blogPostsToSend = this.chunk(blogPosts,8);
-    }else{
+  }
 
-      this.blogPostsToSend = this.chunk(blogPosts, 11);
-    }
-    console.log(this.blogPostsToSend);
+
+  toggleSidenav(){
+    this.isOpen = !this.isOpen;
   }
 
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
   }
 
-
-  chunk(array: any[], size: number) {
-    return array.reduce((acc, _, i) => (i % size ? acc : [...acc, array.slice(i, i + size)]), []);
-  }
 }
