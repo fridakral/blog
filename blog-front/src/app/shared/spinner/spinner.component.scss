@@ -1,3 +1,5 @@
+
+
 .spinner-container{
   width: 100%;
   margin-top: 3rem;
@@ -7,7 +9,7 @@
 }
 
 .lds-spinner {
-  color: #93dbe9;
+  color: var(--primary-color);
   display: inline-block;
   position: relative;
   width: 80px;
@@ -26,7 +28,7 @@
   width: 6px;
   height: 18px;
   border-radius: 20%;
-  background: #93dbe9;
+  background: var(--primary-color);
 }
 .lds-spinner div:nth-child(1) {
   transform: rotate(0deg);

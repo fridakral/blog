@@ -14,12 +14,24 @@
 
 
   @if (isOpen){
-    <div class="tag-container">
-      @for (tag of tags; track tags){
-        <app-nav-button-mobile [name]="tag.name"></app-nav-button-mobile>
-      }
+    <div class="filters">
 
-  </div>
+      <p>Kategóriák</p>
+      <div class="tag-container">
+        @for (tag of tags; track tags){
+          <app-nav-button-mobile [name]="tag.name"></app-nav-button-mobile>
+        }
+      </div>
+    </div>
+    <div class="filters">
+
+      <p>Szerzők</p>
+      <div class="tag-container">
+        @for (author of authors; track author){
+          <app-nav-button-mobile [name]="author"></app-nav-button-mobile>
+        }
+      </div>
+    </div>
   }
 </div>
 
