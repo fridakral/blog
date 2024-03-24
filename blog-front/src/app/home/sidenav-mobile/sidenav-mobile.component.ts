@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {NavButtonComponent} from "../sidenav/nav-button/nav-button.component";
 import {NavButtonMobileComponent} from "./nav-button-mobile/nav-button-mobile.component";
+import {authors, tags} from "../../shared/utils/consts";
 
 @Component({
   selector: 'app-sidenav-mobile',
@@ -32,6 +33,9 @@ import {NavButtonMobileComponent} from "./nav-button-mobile/nav-button-mobile.co
 export class SidenavMobileComponent {
   @Input() isOpen!: boolean;
   @Output() togglePressEvent = new EventEmitter<void>();
-  @Input() tags!: { icon: string; iconAlt: string; name: string; isChosen: boolean }[];
+
+
+  protected readonly authors = authors;
+  protected readonly tags = tags;
 
 }

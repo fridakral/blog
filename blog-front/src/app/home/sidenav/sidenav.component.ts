@@ -8,12 +8,15 @@ import {
 } from "@angular/animations";
 import {Subscription} from "rxjs";
 import {BreakpointService} from "../../shared/services/breakpoint.service";
+import {authors, tags} from "../../shared/utils/consts";
+import {TagComponent} from "../../shared/tag/tag.component";
 
 @Component({
   selector: 'app-sidenav',
   standalone: true,
   imports: [
-    NavButtonComponent
+    NavButtonComponent,
+    TagComponent
   ],
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.scss',
@@ -46,7 +49,6 @@ export class SidenavComponent implements OnDestroy{
 
   @Input() public isOpen : boolean = false;
   @Output() togglePressEvent = new EventEmitter<void>();
-  @Input() tags : {icon: string, iconAlt: string, name: string, isChosen:boolean}[] = [];
 
   currentBreakpoint:string = '';
   subscription?: Subscription;
@@ -62,4 +64,7 @@ export class SidenavComponent implements OnDestroy{
   ngOnDestroy() {
     this.subscription?.unsubscribe();
   }
+
+  protected readonly tags = tags;
+  protected readonly authors = authors;
 }
