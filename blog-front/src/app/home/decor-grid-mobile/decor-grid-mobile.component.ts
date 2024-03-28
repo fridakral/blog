@@ -16,10 +16,10 @@ import {NgClass} from "@angular/common";
 })
 export class DecorGridMobileComponent implements OnDestroy, OnInit{
 
-  @Input() blogPosts : { title: string, tags: string[], image: string }[] = [];
+  @Input() blogPosts : { title: string, tags: string[], image: string, id : number}[] = [];
   @Input() isOpen!: boolean;
 
-  blogPostsChunks:{ title: string, tags: string[], image: string }[][] = [];
+  blogPostsChunks:{ title: string, tags: string[], image: string, id: number }[][] = [];
 
   currentBreakpoint:string = '';
   subscription?: Subscription;

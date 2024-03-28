@@ -22,9 +22,9 @@ import {ImageCardComponent} from "../../shared/image-card/image-card.component";
 })
 export class DecorGridComponent implements OnDestroy, OnInit{
 
-  @Input() blogPosts : { title: string, tags: string[], image: string }[] = [];
+  @Input() blogPosts : { title: string, tags: string[], image: string, id: number }[] = [];
 
-  blogPostsChunks:{ title: string, tags: string[], image: string }[][] = [];
+  blogPostsChunks:{ title: string, tags: string[], image: string, id: number }[][] = [];
 
   currentBreakpoint:string = '';
   subscription?: Subscription;
