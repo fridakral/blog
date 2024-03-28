@@ -22,9 +22,9 @@ import {ImageCardComponent} from "../../shared/image-card/image-card.component";
 })
 export class DecorGridComponent implements OnDestroy, OnInit{
 
-  @Input() blogPosts : { title: string, tags: string[], image: string }[] = [];
+  @Input() blogPosts : { title: string, tags: string[], image: string, id: number }[] = [];
 
-  blogPostsChunks:{ title: string, tags: string[], image: string }[][] = [];
+  blogPostsChunks:{ title: string, tags: string[], image: string, id: number }[][] = [];
 
   currentBreakpoint:string = '';
   subscription?: Subscription;
@@ -41,7 +41,6 @@ export class DecorGridComponent implements OnDestroy, OnInit{
 
   ngOnInit() {
     this.blogPostsChunks = this.chunk(this.blogPosts, 11);
-    console.log(this.blogPostsChunks);
   }
 
   chunk(array: any[], size: number) {

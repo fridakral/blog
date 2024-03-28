@@ -8,14 +8,20 @@
   padding:0 5px 0 5px ;
   max-width: 200px;
   width:100%;
+  height: 58px;
   img {
     max-height: 3rem;
     margin: 5px;
   }
 
-  p {
+  .title {
     font-size: large;
     margin-left: 1rem;
+  }
+
+  .title-no-margin{
+    font-size: large;
+    margin: auto;
   }
 }
 

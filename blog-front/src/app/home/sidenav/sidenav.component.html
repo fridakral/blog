@@ -1,17 +1,21 @@
 <div class="sidenav" [@openClose]="!isOpen ? 'closed' : (currentBreakpoint == 'large'? 'open' : 'halfway')">
   @if(isOpen){
     <div class="sidenav-content">
-        @if(currentBreakpoint=='large'){
-          <p class="categories">Kategóriák</p>
-        }
+      @if(currentBreakpoint=='large'){
+        <p class="categories">Kategóriák</p>
+      } @else{
+        <p class="categories">.</p>
+      }
       @for (tag of tags; track tag) {
-      <app-nav-button [data]="tag"></app-nav-button>
+        <app-nav-button [data]="tag"></app-nav-button>
       }
       @if (currentBreakpoint == 'large'){
         <p class="categories">Szerzők</p>
-        @for (author of authors; track author){
-          <app-tag [name]="author"></app-tag>
-        }
+      } @else {
+        <p class="categories">.</p>
+      }
+      @for (author of authors; track author){
+        <app-nav-button [data]="{ icon: '', iconAlt : '', name: author, isChosen: false}"></app-nav-button>
       }
     </div>
     <button class="toggle-button" (click)="togglePressEvent.emit()">

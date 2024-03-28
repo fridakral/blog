@@ -10,13 +10,15 @@ import {Subscription} from "rxjs";
 import {BreakpointService} from "../../shared/services/breakpoint.service";
 import {authors, tags} from "../../shared/utils/consts";
 import {TagComponent} from "../../shared/tag/tag.component";
+import {NgStyle} from "@angular/common";
 
 @Component({
   selector: 'app-sidenav',
   standalone: true,
   imports: [
     NavButtonComponent,
-    TagComponent
+    TagComponent,
+    NgStyle
   ],
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.scss',
